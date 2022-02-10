@@ -1,0 +1,46 @@
+[
+  {
+    "date": "12/02/22 Saturday 7am to 9am",
+    "Court": [
+      {
+        "slot": "Court 5"
+      },
+      {
+        "slot": "Court 6"
+      }
+    ]
+  },
+  {
+    "date": "19/02/22 Saturday 7am to 9am",
+    "Court": [
+      {
+        "slot": "Court 5"
+      },
+      {
+        "slot": "Court 6"
+      }
+    ]
+  },
+  {
+    "date": "26/02/22 Saturday 7am to 9am",
+    "Court": [
+      {
+        "slot": "Court 4"
+      },
+      {
+        "slot": "Court 5"
+      }
+    ]
+  },
+  {
+    "date": "5/03/22 Saturday 7am to 9am",
+    "Court": [
+      {
+        "slot": "Court 4"
+      },
+      {
+        "slot": "Court 5"
+      }
+    ]
+  }
+]
