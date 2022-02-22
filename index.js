@@ -4,12 +4,13 @@ fetch('results.json')
         let data = resultData;
         console.log(data);
         for (i in data) {
-            //console.log(i);
+            console.log(i);
+			console.log(typeof i);
             let record = data[i]
             console.log(record);
             date = data[i].date
             console.log(date);
-            let center_container = $(`<div class="center-container"></div>`)
+            let center_container = $(`<div id=${i} class="center-container">Slot - ${parseInt(i)+1}</div>`)
             $(center_container).css('background', '#DAEDC5')
             let center_title = $(`<div class="center-availability">${date}</div>`)
 			let slot=""
@@ -36,19 +37,22 @@ fetch('results.json')
             $(center_container).append(center_availability)
             $('#main-container').append(center_container)
 
-            $('#main-container')
+           /** $('#main-container')
                 .children()
                 .sort((a, b) => {
                     return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase())
                 })
                 .each((a, b) => {
                     $('#main-container').append(b)
-                })
+                }) **/
 
 
         }
 
     })
+
+
+
 
 
 
