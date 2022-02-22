@@ -10,6 +10,9 @@ from selenium.webdriver.chrome.options import Options
 import collections
 import logging
 import time
+from github import Github
+import os
+
 
 timestr = time.strftime("%Y%m%d-%H%M%S")
 
@@ -137,3 +140,43 @@ with open('update-time.txt', 'w') as f:
     f.close()
 
 logging.info("End of Updated Date")
+
+
+
+
+#########################
+## Git Checkin
+#########################
+
+logging.info("Start of Git Checkin")
+
+with open('results.json', 'r') as file:
+    content = file.read()
+
+#print(content)
+
+
+token = os.getenv('GITHUB_TOKEN', settings['git_token'])
+g = Github(token)
+
+repo = g.get_repo("harieshprabu/harieshprabu.github.io")
+
+
+with open('results.json', 'r') as file:
+    content = file.read()
+
+file="results.json"
+contents = repo.get_contents(file)
+repo.update_file(contents.path, "committing files", content, contents.sha, branch="main")
+logging.info("End of Git Checkin - results.json")
+
+with open('update-time.txt', 'r') as file:
+    content = file.read()
+
+file="update-time.txt"
+contents = repo.get_contents(file)
+repo.update_file(contents.path, "committing files", content, contents.sha, branch="main")
+logging.info("End of Git Checkin - update-time.txt")
+
+logging.info("End of Git Checkin")
+
