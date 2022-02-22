@@ -22,14 +22,14 @@ if(settings['headless']):
 driver = webdriver.Chrome(options=chrome_options)
 
 try:
-    driver.get("https://wetherillpark.thebadmintonclub.com.au/secure/customer/login")
+    driver.get(settings['login_page'])
     print(settings['username'])
     driver.find_element(By.ID,"userName").send_keys(settings['username'])
     driver.find_element(By.ID,"userPassword").send_keys(settings['password'])
     time.sleep(settings['wait_timer'])
     driver.find_element(By.ID,"submit_button").click()
     time.sleep(settings['wait_timer'])
-    driver.get("https://wetherillpark.thebadmintonclub.com.au/secure/customer/booking/private/mybookings")
+    driver.get(settings['booking_page'])
     time.sleep(settings['wait_timer'])
 
     with open('page.html', 'w') as f:
